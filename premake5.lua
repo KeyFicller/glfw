@@ -3,8 +3,8 @@ project "glfw"
     language "C"
     staticruntime "on"
     
-    targetdir(g_workspaceDir .. "/bin/" .. g_outputDir .. "/%{prj.name}")
-    objdir(g_workspaceDir .. "/bin-int/" .. g_outputDir .. "/%{prj.name}")
+    targetdir(envir_work_space_directory .. "/bin/" .. envir_output_directory .. "/%{prj.name}")
+    objdir(envir_work_space_directory .. "/bin-int/" .. envir_output_directory .. "/%{prj.name}")
 
     defines {"_CRT_SECURE_NO_WARNINGS", "_GLFW_WIN32", "_GLFW_BUILD_DLL"}
 
@@ -13,12 +13,13 @@ project "glfw"
         "include/GLFW/glfw3.h",
         "include/GLFW/glfw3native.h",
         "src/**.h",
-        "src/**.c"
+        "src/**.c",
+        "premake5.lua"
     }
 
     postbuildcommands
     {
-        ("{COPY} %{cfg.buildtarget.relpath} \"../../bin/" .. g_outputDir .. "/demo/\"")
+        ("{COPY} %{cfg.buildtarget.relpath} \"../../bin/" .. envir_output_directory .. "/bimengine/\"")
     }
     
 	filter "system:windows"
