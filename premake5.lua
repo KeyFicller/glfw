@@ -19,7 +19,7 @@ project "glfw"
 
     postbuildcommands
     {
-        ("{COPY} %{cfg.buildtarget.relpath} \"../../bin/" .. envir_output_directory .. "/bimengine/\"")
+        ("{COPY} %{cfg.buildtarget.relpath} \"../../bin/" .. envir_output_directory .. "/sandbox/\"")
     }
     
 	filter "system:windows"
